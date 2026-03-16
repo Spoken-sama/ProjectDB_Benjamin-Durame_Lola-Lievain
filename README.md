@@ -1,6 +1,6 @@
 ### Here is our AI Prompt with our business rules : 
-
-> You work in the field of data analysis. Your company is involved in the domain of textiles,
+```
+You work in the field of data analysis. Your company is involved in the domain of textiles,
 yarns, fibers etc... It is a company such as the danish brand Hobbii or French brand Tissus
 des Ursules. The data being collected are clients, inventory, the fabric/textile/yarn
 attributes, and workers. Take inspiration from the following websites : https://hobbii.fr/ ,
@@ -19,7 +19,7 @@ should be between 25 and 35 data items. It is used to provide additional informa
 about each data item (size and type) but without any assumptions about how the data will
 be modeled later. 
 Provide the business rules and the data dictionary.
-
+```
 
 ### And here is the data dictionary : 
 
@@ -66,19 +66,18 @@ Provide the business rules and the data dictionary.
 
 
 ### Here is our AI prompt for your LDM :
-
---  "You are a SQL data generator, you must help me for a textile retail database.
---   Generate realistic INSERT statements for the following tables in order
---   (respecting foreign key dependencies):
---   headquarters, material, sellingtype, client, payment, store, employee,
---   item, order, is_made_of, belongs_to, has, contains, paid.
---   Rules:
---   - Generate at least 5 rows per table, more for junction tables.
---   - All values must be consistent with each other (FK values must exist).
---   - Respect all CHECK constraints: prices > 0, emails contain '@',
---     order must be physical XOR online, status in known list, etc.
---   - The context is a yarn/fabric/textile retail brand with physical and online stores.
---   - Return only valid SQL INSERT statements, no commentary."
-
-
+```
+"You are a SQL data generator, you must help me for a textile retail database.
+Generate realistic INSERT statements for the following tables in order
+- (respecting foreign key dependencies):
+- headquarters, material, sellingtype, client, payment, store, employee,
+- item, order, is_made_of, belongs_to, has, contains, paid.
+Rules:
+- Generate at least 5 rows per table, more for junction tables.
+- All values must be consistent with each other (FK values must exist).
+- Respect all CHECK constraints: prices > 0, emails contain '@', order must be physical XOR online, status in known list, etc.
+- The context is a yarn/fabric/textile retail brand with physical and online stores.
+- Return only valid SQL INSERT statements, no commentary." 
+ 
+```
 The usage scenario is explained in the READM
