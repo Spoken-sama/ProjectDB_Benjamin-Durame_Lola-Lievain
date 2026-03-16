@@ -1,3 +1,7 @@
+# DATABASES PROJECT : Our craft supply company
+## By Lola Lievain-Thiebaut and Benjamin Duramé-Grémont
+Hello ! Welcome to Benjamin and Lola's Github Repository ! This repository is made to present to you our Database project, using MCDs, LMDs, and SQL as our language. We chose a fiber arts company as our base, and we created a database for them to store all client information(including payments), information about stores and other buildings, employee info and, maybe the most important, all needed to know about supplies, like how many there are, their characteristics, price etc...
+
 ### Here is our AI Prompt with our business rules : 
 ```
 You work in the field of data analysis. Your company is involved in the domain of textiles,
@@ -80,4 +84,34 @@ Rules:
 - Return only valid SQL INSERT statements, no commentary." 
  
 ```
-The usage scenario is explained in the READM
+
+### With the given LDM :
+```
+headquarters = (name VARCHAR(100));
+
+material = (material_id INT, material_name VARCHAR(100));
+
+selling_type = (ST_id INT, ST_amount INT, ST_weight DECIMAL, ST_length DECIMAL, ST_yarn_weight DECIMAL, ST_yarn_ply INT, ST_fabric_weave VARCHAR(100));
+
+client = (c_id INT, c_first_last_name VARCHAR(150), c_adress VARCHAR(255), c_tel_number VARCHAR(20), c_email_adress VARCHAR(150), member_loyalty_prgm BOOLEAN);
+
+payment = (payement_id INT, payement_date DATE, amount DECIMAL, method VARCHAR(50));
+
+store = (store_id INT, store_location VARCHAR(255), #hq_name VARCHAR(100));
+
+employee = (E_id INT, E_first_last_name VARCHAR(150), role VARCHAR(100), #store_id INT, #manager_id INT);
+
+item = (I_id INT, I_name VARCHAR(150), I_category VARCHAR(100), I_price DECIMAL, I_color_orpattern VARCHAR(100), brand VARCHAR(100));
+
+order = (order_id INT, physical BOOLEAN, online BOOLEAN, refund BOOLEAN, Total_price DECIMAL, delivery VARCHAR(255), status VARCHAR(50), #c_id INT);
+
+is_made_of = (#I_id INT, #material_id INT);
+
+belongs_to = (#I_id INT, #ST_id INT);
+
+has = (#store_id INT, #I_id INT, disponibility INT);
+
+contains = (#I_id INT, #order_id INT);
+
+paid = (#order_id INT, #payement_id INT);
+```
